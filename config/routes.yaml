@@ -5,3 +5,7 @@ controllers:
 kernel:
     resource: ../src/Kernel.php
     type: annotation
+
+connexion:
+    path: /connexion
+    controller: App\Controller\SecurityController::login
