@@ -11,7 +11,7 @@
 
     {% if app.user %}
         <div class="mb-3">
-            Vous êtes connecté(e) comme {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
+            Vous êtes déjà connecté(e) comme {{ app.user.userIdentifier }}, <a class="mb-3 text-blue-700 underline underline-offset-2 hover:decoration-blue-400 hover:text-blue-400" href="{{ path('app_logout') }}">Se déconnecter</a>
         </div>
     {% endif %}
 
@@ -40,9 +40,14 @@
         </div>
     #}
 
-    <button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="submit">
-        Se connecter
-    </button>
+    <div class="flex justify-between">
+        <button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="submit">
+            Se connecter
+        </button>
+        <a href="{{ path('app_register') }}" class="flex-shrink-0 bg-gray-500 hover:bg-gray-700 border-gray-500 hover:border-gray-700 text-sm border-4 text-white py-1 px-2 rounded" type="submit">
+            S'inscrire
+        </a>
+    </div>
     
 </form>
 </div>

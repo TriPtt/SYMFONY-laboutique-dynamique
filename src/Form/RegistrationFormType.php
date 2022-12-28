@@ -21,33 +21,39 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('email', EmailType::class, [
                 'attr' => [
-                    'class'=> 'bg-transparent border-solid border-2 border-rose-500 w-full text-gray-700 mr-3 py-1 px-2 '
-                ]
+                    'class'=> 'bg-transparent border-teal-500 border-2 w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none focus:bg-white focus:border-teal-700'
+                ],
+                'label' => 'E-mail'
             ])
             ->add('lastname', TextType::class, [
                 'attr' => [
-                    'class'=> 'appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none'
-                ]
+                    'class'=> 'bg-transparent border-teal-500 border-2 w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none focus:bg-white focus:border-teal-700'
+                ],
+                'label' => 'Nom'
             ])
             ->add('firstname', TextType::class, [
                 'attr' => [
-                    'class'=> 'appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none'
-                ]
+                    'class'=> 'bg-transparent border-teal-500 border-2 w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none focus:bg-white focus:border-teal-700'
+                ],
+                'label' => 'Prénom'
             ])
             ->add('address', TextType::class, [
                 'attr' => [
-                    'class'=> 'appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none'
-                ]
+                    'class'=> 'bg-transparent border-teal-500 border-2 w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none focus:bg-white focus:border-teal-700'
+                ],
+                'label' => 'Adresse'
             ])
             ->add('zipcode', TextType::class, [
                 'attr' => [
-                    'class'=> 'appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none'
-                ]
+                    'class'=> 'bg-transparent border-teal-500 border-2 w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none focus:bg-white focus:border-teal-700'
+                ],
+                'label' => 'Code postal'
             ])
             ->add('city', TextType::class, [
                 'attr' => [
-                    'class'=> 'appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none'
-                ]
+                    'class'=> 'bg-transparent border-teal-500 border-2 w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none focus:bg-white focus:border-teal-700'
+                ],
+                'label' => 'Ville'
             ])
             ->add('RGPDConsent', CheckboxType::class, [
                 'mapped' => false,
@@ -56,6 +62,7 @@ class RegistrationFormType extends AbstractType
                         'message' => 'You should agree to our terms.',
                     ]),
                 ],
+                'label' => 'J\'accepte les conditions générales d\'utilisation'
             ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
@@ -63,7 +70,7 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'attr' => [
                     'autocomplete' => 'new-password',
-                    'class'=> 'appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none'
+                    'class'=> 'bg-transparent border-teal-500 border-2 w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none focus:bg-white focus:border-teal-700'
                 ],
                 'constraints' => [
                     new NotBlank([
@@ -76,6 +83,7 @@ class RegistrationFormType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
+                'label' => 'Mot de passe'
             ])
         ;
     }

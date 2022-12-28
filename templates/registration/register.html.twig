@@ -4,19 +4,18 @@
 
 {% block body %}
 <div class="max-w-lg mx-auto px-4 py-8">
-    <h1 class="text-5xl font-bold text-center text-gray-800 pb-10">S'inscrire</h1>
+    <h1 class="text-5xl font-bold text-center text-gray-800 pb-8">S'inscrire</h1>
 
     {{ form_start(registrationForm) }}
-
-        <div class="items-center border-b border-b-2 border-teal-500 py-2">
-            <h1 class="">Informations personnelles</h1>
+        <div class="items-center border-b border-b-2 py-2">
+            <h1 class="text-3xl font-bold text-gray-900 pb-6">Informations personnelles</h1>
             {{ form_row(registrationForm.firstname) }}
             {{ form_row(registrationForm.lastname) }}
             {{ form_row(registrationForm.email) }}
         </div>
 
-        <div class="items-center border-b border-b-2 border-teal-500 py-2">
-            <h1>Coordonnées</h1>
+        <div class="items-center border-b border-b-2 py-2">
+            <h1 class="text-3xl font-bold text-gray-900 py-6">Coordonnées</h1>
             {{ form_row(registrationForm.address) }}
             {{ form_row(registrationForm.zipcode) }}
             {{ form_row(registrationForm.city) }}
@@ -28,8 +27,13 @@
             }) }}
             {{ form_row(registrationForm.RGPDConsent) }}
         </div>
-
-        <button type="submit" class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded">S'inscrire</button>
+        
+        <div class="flex justify-between">
+            <button type="submit" class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded">S'inscrire</button>
+            <a href="{{ path('app_login') }}" class="flex-shrink-0 bg-gray-500 hover:bg-gray-700 border-gray-500 hover:border-gray-700 text-sm border-4 text-white py-1 px-2 rounded" type="submit">
+            Se connecter
+            </a>
+        </div>
     {{ form_end(registrationForm) }}
 </div>
 {% endblock %}
