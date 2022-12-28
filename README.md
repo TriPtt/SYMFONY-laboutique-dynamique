@@ -63,7 +63,18 @@ $ npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch
 ```
 #### 5.On oublie pas d'ajouter le link du fichier de sortie
 
+## Système d'authentification :
 
+connexion
+```
+$ symfony console make:auth
+```
+1
+
+inscription
+```
+$ symfony console make:registration-form
+```
 
 
 
