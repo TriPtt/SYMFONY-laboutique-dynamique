@@ -12,12 +12,12 @@ Une fois terminé il sera presenté dans mon futur portfolio.
 
 Je me répertorie toutes les commandes qui m'ont servis à réaliser ce projet :
 
-### Création du projet :
+## Création du projet :
 ```
 $ symfony new --full nom-du-projet
 ```
 
-### Création de la base de données / tables :
+## Création de la base de données / tables :
 
 On créer d'abord le fichier .env.local que l'on configure suivant nos versions
 
@@ -42,7 +42,7 @@ $ symfony console make:migration
 $ symfony console doctrine:migrations:migrate ou d:m:m
 ```
 
-### Ajout de tailwindcss :
+## Ajout de tailwindcss :
 
 #### 1.Installation :
 ```
