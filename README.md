@@ -51,9 +51,17 @@ $ npx tailwindcss init
 ```
 #### 2.Configuration :
 On configure le content du fichier tailwind.config.js
-
-
-
+#### 3.On import dans le fichier css d'entrée :
+```
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+#### 4.On lance la construction du fichier d'entrée vers celui de sortie :
+```
+$ npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch
+```
+#### 5.On oublie pas d'ajouter le link du fichier de sortie
 
 
 
