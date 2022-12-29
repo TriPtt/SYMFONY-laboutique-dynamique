@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}La Boutique Dynamique{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{{asset('assets/css/tailwind.css')}}">
-        {% block stylesheets %}
-            
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}La Boutique Dynamique
+			{% endblock %}
+		</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="{{asset('assets/css/tailwind.css')}}"> {% block stylesheets %}{% endblock %}{% block javascripts %}{% endblock %}
+		<script src="{{asset('assets/js/app.js')}}"></script>
+	</head>
+	<body class="bg-gray-200">
+		{% include "_partials/_nav.html.twig" %}
+		{% if app.user and app.user.isVerified == false %}
+			<div class=" bg-red-500 font-bold text-white text-center p-4 closebouton shadow-md mb-4">
+				Votre compte n'est pas encore vérifié. Veuillez cliquer sur le lien de vérification qui vous a été envoyé par email ou
+				<a class="text-blue-900 hover:text-blue-700 font-extrabold underline underline-offset-2" href="{{ path('resend_verif') }}">renvoyer un lien de vérification</a>.
+				<button class="btn btnclose float-right -mb-8">
+					<svg class="w-6 h-6 fill-current">
+						<path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"/>
+					</svg>
+				</button>
+			</div>
+		{% endif %}
+		{% include "_partials/_flash.html.twig" %}
+		{% block body %}{% endblock %}
 
-        {% block javascripts %}
-        {% endblock %}
-    </head>
-    <body class="bg-gray-200">
-        {% include "_partials/_nav.html.twig" %}
-
-        {% block body %}{% endblock %}
-
-        {% include "_partials/_footer.html.twig" %}
-    </body>
+		{% include "_partials/_footer.html.twig" %}
+	</body>
 </html>

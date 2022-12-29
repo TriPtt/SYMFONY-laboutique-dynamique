@@ -1,0 +1,17 @@
+{% for label, messages in app.flashes %}
+	{% for message in messages %}
+		{% if label == 'success' %}
+			<div class=" bg-green-500 font-bold text-white text-center p-4 closebouton shadow-md mb-4">
+				{{ message|raw }}
+			</div>
+		{% elseif label == 'danger' %}
+			<div class=" bg-red-500 font-bold text-white text-center p-4 closebouton shadow-md mb-4">
+				{{ message|raw }}
+			</div>
+		{% elseif label == 'dangery' %}
+			<div class=" bg-yellow-500 font-bold text-white text-center p-4 closebouton shadow-md mb-4">
+				{{ message|raw }}
+			</div>
+		{% endif %}
+	{% endfor %}
+{% endfor %}

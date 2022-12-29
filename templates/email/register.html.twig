@@ -1,0 +1,14 @@
+<h1>Activez votre compte</h1>
+<p>Bonjour
+	{{ user.firstname }}
+	{{ user.lastname }},</p>
+<p>Vous avez demandé à activer votre compte sur le site
+	<a href="#">www.laboutique-dyanmique.com</a>.</p>
+<p>Pour activer votre compte, veuillez cliquer sur le lien ci-dessous ou copier/coller dans votre navigateur internet.</p>
+<p>
+	<a href="{{ absolute_url(path('app_activation', {token: token})) }}">{{ absolute_url(path('app_activation', {token: token})) }}</a>
+</p>
+<p>Cordialement,</p>
+<p>L'équipe de
+	<a href="#">www.laboutique-dyanmique.com</a>
+</p>
