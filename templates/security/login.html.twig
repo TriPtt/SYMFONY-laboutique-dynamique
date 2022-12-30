@@ -1,53 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Connexion{% endblock %}
+{% block title %}Connexion
+{% endblock %}
 
 {% block body %}
-<div class="max-w-lg mx-auto px-4 py-8">
-<form class="w-full" method="post">
-    {% if error %}
-        <p class="bg-red-500 text-white font-bold rounded-full px-4 py-2">{{ error.messageKey|trans(error.messageData, 'security') }}</p>
-    {% endif %}
+	<div class="max-w-lg mx-auto px-4 py-8">
+		<form class="w-full" method="post">
+			{% if error %}
+				<p class="bg-red-500 text-white font-bold rounded-full px-4 py-2">{{ error.messageKey|trans(error.messageData, 'security') }}</p>
+			{% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            Vous êtes déjà connecté(e) comme {{ app.user.userIdentifier }}, <a class="mb-3 text-blue-700 underline underline-offset-2 hover:decoration-blue-400 hover:text-blue-400" href="{{ path('app_logout') }}">Se déconnecter</a>
-        </div>
-    {% endif %}
+			{% if app.user %}
+				<div class="mb-3">
+					Vous êtes déjà connecté(e) comme
+					{{ app.user.userIdentifier }},
+					<a class="mb-3 text-blue-700 underline underline-offset-2 hover:decoration-blue-400 hover:text-blue-400" href="{{ path('app_logout') }}">Se déconnecter</a>
+				</div>
+			{% endif %}
 
-    <h1 class="text-5xl font-bold text-center text-gray-800 pb-10">Se connecter</h1>
+			<h1 class="text-5xl font-bold text-center text-gray-800 pb-10">Se connecter</h1>
 
-    <div class="flex items-center border-b border-b-2 border-teal-500 py-2">
-        <input placeholder="Email" type="email" value="{{ last_username }}" name="email" id="inputEmail" class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" autocomplete="email" required autofocus>
-    </div>
+			<div class="flex items-center border-b border-b-2 border-teal-500 py-2">
+				<input placeholder="Email" type="email" value="{{ last_username }}" name="email" id="inputEmail" class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" autocomplete="email" required autofocus>
+			</div>
 
-    <div class="my-4 flex items-center">
-        <input placeholder="Mot de passe" type="password" name="password" id="inputPassword" class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" autocomplete="current-password" required>
+			<div class="my-4 flex items-center">
+				<input placeholder="Mot de passe" type="password" name="password" id="inputPassword" class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" autocomplete="current-password" required>
 
-        <input type="hidden" name="_csrf_token"
-            value="{{ csrf_token('authenticate') }}"
-        >
-    </div>
+				<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+			</div>
+			<a class="text-sm text-blue-700 underline underline-offset-2 hover:decoration-blue-400 hover:text-blue-400" href="{{ path('app_forgotten_password') }}">
+				Mot de passe oublié ?</a>
 
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
 
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
-
-    <div class="flex justify-between">
-        <button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="submit">
-            Se connecter
-        </button>
-        <a href="{{ path('app_register') }}" class="flex-shrink-0 bg-gray-500 hover:bg-gray-700 border-gray-500 hover:border-gray-700 text-sm border-4 text-white py-1 px-2 rounded" type="submit">
-            S'inscrire
-        </a>
-    </div>
-</form>
-</div>
+			<div class="flex justify-between mt-5">
+				<button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="submit">
+					Se connecter
+				</button>
+				<a href="{{ path('app_register') }}" class="flex-shrink-0 bg-gray-500 hover:bg-gray-700 border-gray-500 hover:border-gray-700 text-sm border-4 text-white py-1 px-2 rounded" type="submit">
+					S'inscrire
+				</a>
+			</div>
+		</form>
+	</div>
 {% endblock %}
