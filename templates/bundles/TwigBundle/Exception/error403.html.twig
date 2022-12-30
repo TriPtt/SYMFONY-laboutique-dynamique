@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{%block title %}Page non trouvée
+{% endblock %}
+
+{% block body %}
+	<div class="container max-w-screen-xl mx-auto px-4 py-8">
+		<div class="flex flex-col md:flex-row">
+			<div class="md:w-1/2">
+				<h1 class="text-4xl font-bold mb-4">Page non trouvée</h1>
+				<p class="text-xl mb-4">La page que vous recherchez n'existe pas ou plus.</p>
+				<p class="text-xl mb-4">Vous pouvez retourner à l'accueil en cliquant sur le bouton ci-dessous.</p>
+				<a href="{{ path('main') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Retour à l'accueil</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}
