@@ -13,7 +13,7 @@
 
 
 		<div class="grid grid-cols-3 gap-4">
-			{% for product in products %}
+			{% for product in products.data %}
 				<div class="w-full">
 					<div class="bg-white rounded-lg shadow-lg p-5 h-full">
 						<h2 class="text-gray-800 text-xl font-bold mb-5">{{ product.name }}</h2>
@@ -22,7 +22,11 @@
 					</div>
 				</div>
 			{% endfor %}
+			{% set path = 'category_list' %}
+			{% set slug = category.slug %}
+			{% set pages = products.pages %}
+			{% set currentPage = products.page %}
 		</div>
-
+		{% include '_partials/_pagination.html.twig' %}
 	</div>
 {% endblock %}

@@ -1,0 +1,21 @@
+{% if pages > 1 %}
+	<nav class="pagination flex">
+		{% if currentPage > 1 %}
+			<a href="{{ path(path, {slug: slug, page: currentPage -1} )}}" class="pagination-previous">Précédent</a>
+		{% else %}
+			<a class="pagination-previous disable">Précédent</a>
+		{% endif %}
+		<ul class="pagination-list">
+			{% for page in 1..pages %}
+				<li>
+					<a href="{{ path(path, {slug: slug, page: page} )}}" class="pagination-link {{ (page == currentPage) ? 'is-current' : '' }}">{{ page }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+		{% if currentPage < pages %}
+			<a href="{{ path(path, {slug: slug, page: currentPage +1} )}}" class="pagination-next">Suivant</a>
+		{% else %}
+			<a class="pagination-next disable">Suivant</a>
+		{% endif %}
+	</nav>
+{% endif %}
