@@ -1,7 +1,65 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Détails de {{ product.name }}{% endblock %}
+{% block title %}Détails de
+	{{ product.name }}
+{% endblock %}
 
 {% block body %}
-    <h1>Détails de {{ product.name }}</h1>
+	<script src="{{asset('assets/js/carousel.js')}}"></script>
+	<div class="container max-w-screen-xl mx-auto px-4 py-8">
+		<h1 class="text-3xl font-bold text-gray-800 text-center pb-8">
+			{{ product.name }}</h1>
+
+		<div class="flex flex-wrap -mx-4">
+			<div class="w-full md:w-1/2 px-4">
+				<div class="carousel relative h-96 overflow-hidden">
+					<button class="prev ml-9 bg-gray-800 rounded-full h-12 w-12 flex items-center justify-center text-white hover:bg-gray-700 focus:outline-none focus:shadow-outline-gray active:bg-gray-600">
+						<svg class="prev h-6 w-6 ml-11" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" stroke="currentColor">
+							<path d="M15 19l-7-7 7-7"></path>
+						</svg>
+					</button>
+					<button class="next mr-9 bg-gray-800 rounded-full h-12 w-12 flex items-center justify-center text-white hover:bg-gray-700 focus:outline-none focus:shadow-outline-gray active:bg-gray-600">
+						<svg class=" next h-6 w-6 mr-11" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" stroke="currentColor">
+							<path d="M9 5l7 7-7 7"></path>
+						</svg>
+					</button>
+					{% for image in product.images %}
+						<div class="slide absolute inset-0 flex items-center justify-center {{ (loop.index0 is not same as(0)) ? 'hidden' : '' }}">
+							<img src="{{ asset('assets/uploads/') ~ image.name }}" alt="{{ image.name }}" class="h-full w-full object-cover">
+						</div>
+					{% endfor %}
+
+				</div>
+			</div>
+			{# Affiche moi les produits avec le nom devant chaque éléments #}
+			<div class="w-full md:w-1/2 px-4">
+				<h2 class="text-2xl font-bold text-gray-800">Description</h2>
+				<p class="text-gray-700 text-lg">{{ product.description }}</p>
+
+				<h2 class="text-2xl font-bold text-gray-800">Caractéristiques</h2>
+				<ul class="text-gray-700">
+					<li class="text-lg">Catégorie :
+						{{ product.category.name }}</li>
+					<li class="text-lg">Prix :
+						{{ product.price / 100 }}
+						€</li>
+					{% if product.stock > 0 and product.stock <= 5 %}
+						<li class="text-lg text-red-500">Attention il ne reste plus que
+							{{ product.stock }}
+							articles</li>
+					{% endif %}
+				</ul>
+				{# Lien pour ajouter au panier qui se met en bas a droite du div #}
+				{% if product.stock > 0 %}
+					<div class="flex justify-end">
+						<a href="" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Ajouter au panier</a>
+					</div>
+				{% else %}
+					<div class="flex justify-end">
+						<p class=" text-red-500 font-bold py-2 px-4 rounded">Désolé, nous sommes en rupture de stock</p>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
 {% endblock %}

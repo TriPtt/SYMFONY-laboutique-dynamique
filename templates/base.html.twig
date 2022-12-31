@@ -9,9 +9,9 @@
 		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="{{asset('assets/css/tailwind.css')}}"> {% block stylesheets %}{% endblock %}{% block javascripts %}{% endblock %}
-		<script src="{{asset('assets/js/app.js')}}"></script>
+		<script src="{{asset('assets/js/close.js')}}"></script>
 	</head>
-	<body class="bg-gray-200">
+	<body class="bg-gray-200 z-10">
 		{% include "_partials/_nav.html.twig" %}
 		{% if app.user and app.user.isVerified == false %}
 			<div class=" bg-red-500 font-bold text-white text-center p-4 closebouton shadow-md mb-4">
