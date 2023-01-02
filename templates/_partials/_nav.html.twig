@@ -17,7 +17,7 @@
 			<ul class="flex items-center justify-between font-bold text-lg ml-6">
 				{% if app.user %}
 					<li>
-						<a href="#" class="text-gray-400 hover:text-white mr-6">Mon compte</a>
+						<a href="{{ path('profile_index') }}" class="text-gray-400 hover:text-white mr-6">Mon compte</a>
 					</li>
 					<li>
 						<a href="{{ path('app_logout') }}" class="text-gray-400 hover:text-white">Déconnexion</a>
